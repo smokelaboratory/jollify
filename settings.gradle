@@ -1,0 +1,3 @@
+include ':jollify'
+include ':app'
+rootProject.name = "Jolly"
