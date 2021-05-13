@@ -123,12 +123,6 @@ class Together(private vararg var jollies: Jolly) : Jollies() {
         it.getValueHolder()
     }
 }
-
-fun together(vararg jollies: Jolly, initialize: Together.() -> Unit): Together {
-    val jolly = Together(*jollies)
-    initialize.invoke(jolly)
-    return jolly
-}
 //endregion
 
 //region serial
@@ -137,12 +131,6 @@ class Sequence(private vararg var jollies: BaseJolly) {
         jollies.map {
             prepareObjectAnimator.invoke(it)
         }
-}
-
-fun sequence(
-    vararg jollies: BaseJolly
-): Sequence {
-    return Sequence(*jollies)
 }
 //endregion
 

@@ -54,6 +54,15 @@ fun fade(initialize: Fade.() -> Unit): Fade {
     return jolly
 }
 
+fun sequence(vararg jollies: BaseJolly): Sequence {
+    return Sequence(*jollies)
+}
+
+fun together(vararg jollies: Jolly, initialize: Together.() -> Unit): Together {
+    val jolly = Together(*jollies)
+    initialize.invoke(jolly)
+    return jolly
+}
 
 /**
  * repetition
