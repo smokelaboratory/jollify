@@ -13,6 +13,7 @@ import android.view.animation.Interpolator
  * base classes for jolly operations
  */
 sealed class BaseJolly {
+    var startDelay: Long = 0L
     var duration: Long = 1000L
     var interpolator: Interpolator? = null
     var evaluator: TypeEvaluator<*>? = null

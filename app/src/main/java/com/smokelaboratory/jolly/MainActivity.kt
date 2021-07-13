@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
             duration = 2000
         }, translateX {
             end = -180f
+            startDelay = 1000
         }, translateX {
             begin = -180f
             end = 180f

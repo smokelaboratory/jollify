@@ -1,5 +1,6 @@
 package com.smokelaboratory.jollify
 
+import android.animation.Animator
 import android.animation.AnimatorSet
 import android.animation.ObjectAnimator
 import android.animation.ValueAnimator.RESTART
@@ -15,6 +16,7 @@ private fun View.prepareObjectAnimator(jolly: BaseJolly) = ObjectAnimator.ofProp
     }
 ).apply {
     duration = jolly.duration
+    startDelay = jolly.startDelay
     setEvaluator(jolly.evaluator)
     interpolator = jolly.interpolator
 
@@ -32,22 +34,26 @@ private fun View.prepareObjectAnimator(jolly: BaseJolly) = ObjectAnimator.ofProp
     }
 }
 
-fun View.jollify(jolly: Jolly) {
+fun View.jollify(jolly: Jolly): Animator {
     clearAnimation()
 
-    prepareObjectAnimator(jolly).start()
+    return prepareObjectAnimator(jolly).apply {
+        start()
+    }
 }
 
-fun View.jollify(jollies: Together) {
+fun View.jollify(jollies: Together): Animator {
     clearAnimation()
 
-    prepareObjectAnimator(jollies).start()
+    return prepareObjectAnimator(jollies).apply {
+        start()
+    }
 }
 
-fun View.jollify(jollies: Sequence) {
+fun View.jollify(jollies: Sequence): Animator {
     clearAnimation()
 
-    AnimatorSet().apply {
+    return AnimatorSet().apply {
         playSequentially(jollies.getObjectAnimators {
             prepareObjectAnimator(it)
         })

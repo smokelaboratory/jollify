@@ -36,7 +36,7 @@ allprojects {
 
 ```
 dependencies {
-    implementation 'com.github.smokelaboratory:jollify:1.0.0'
+    implementation 'com.github.smokelaboratory:jollify:1.0.1'
 }
 ```
 
